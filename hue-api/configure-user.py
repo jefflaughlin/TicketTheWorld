@@ -26,7 +26,6 @@ elif "error" in response_dict[0]:
     exit()
 else:
     print("Hue account has been created. Username: {0}".format(response_dict[0]["success"]["username"]))
-
     config = {"bridge": hue_bridge_ip, "username": response_dict[0]["success"]["username"]}
 
     # write to settings config file

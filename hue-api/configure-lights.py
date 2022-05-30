@@ -11,22 +11,18 @@ hue_internal_ip = ""
 username = ""
 config = {}
 
-try:
-    myFile = open(os.path.dirname(sys.argv[0]) + "/config.json", "r")
-    config = json.load(myFile)
-    hue_internal_ip = config["bridge"]
-    username = config["username"]
-except:
-    print("Config settings file not found.  Please run configure-user script.")
-    exit()
-
+# load configuration file
+myFile = open(os.path.dirname(sys.argv[0]) + "/config.json", "r")
+config = json.load(myFile)
+hue_internal_ip = config["bridge"]
+username = config["username"]
 
 # Get the bridge IP address from the Hue service
 data = requests.get(hue_internal_api.format(hue_internal_ip), headers={"hue-application-key": username}, verify=False).json()
 
+# add lights to the config
 newjson = {}
 for light in data["data"]:
-    # add lights to the config
     config[light["id"]] = light["metadata"]["name"]
 
 # write to settings config file

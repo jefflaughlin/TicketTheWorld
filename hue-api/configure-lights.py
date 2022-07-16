@@ -17,7 +17,7 @@ config = json.load(myFile)
 hue_internal_ip = config["bridge"]
 username = config["username"]
 
-# Get the bridge IP address from the Hue service
+# Call the /resource/light API to get back a list of all configured lights and associated names
 data = requests.get(hue_internal_api.format(hue_internal_ip), headers={"hue-application-key": username}, verify=False).json()
 
 # add lights to the config

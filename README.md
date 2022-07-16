@@ -6,6 +6,14 @@ _Ticket The World_ helps you keep an eye on the creation and progress of Jira ti
 
 ![Application Flow Chart](images/MessagingFlowchart.png)
 
+## Setup and Configuration
+
+1. Step through the hue-api setup Python scripts. `configure-user.py` and then `configure-lights.py` They will create a config.json file for your particular environment.
+1. Create an account on Upstash and an endpoint for your data with a Redis backend. The free version allows up to 10,000 commands per day which should be more than enough for any reasonable usage.
+1. Create an account with Netlify. Configure the netlify/api-bridge.
+1. Custoomize the Jira webhook listener
+1. Update the Python scripts to pull from Upstash and schedule the app to run regularly. Once a minute should likely be all that is necessary.
+
 ## Why this project is useful?
 
 _Ticket the World_ provides visual feedback when tickets are created or updated in Jira. Your lights will turn on, they may play a scene or switch to an obvious colour when an event happens in your Jira board. Now you don't even need to check your email to know that your Jira project is active - your lights will let you know.
@@ -55,4 +63,4 @@ This project was built to suit my particular needs so you may wish to customize 
 
 ## Who maintains and contributes to the project
 
-This project is built and maintained by [Jeff Laughlin](https://github.com/jefflaughlin)
+This project is built and maintained by [Jeff Laughlin](https://github.com/jefflaughlin). If you would like to get involved please reach out and let me know.

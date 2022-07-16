@@ -10,8 +10,8 @@ _Ticket The World_ helps you keep an eye on the creation and progress of Jira ti
 
 1. Step through the hue-api setup Python scripts. `configure-user.py` and then `configure-lights.py` They will create a config.json file for your particular environment.
 1. Create an account on Upstash and an endpoint for your data with a Redis backend. The free version allows up to 10,000 commands per day which should be more than enough for any reasonable usage.
-1. Create an account with Netlify. Configure the netlify/api-bridge.
-1. Custoomize the Jira webhook listener
+1. Create an account with Netlify. Set a new Environment Variable in Netlify's UI called `UPSTASH_ENDPOINT` and set it to the address generated in the previous step. Configure the `netlify-bridge-api`.
+1. Customize the Jira webhook listener
 1. Update the Python scripts to pull from Upstash and schedule the app to run regularly. Once a minute should likely be all that is necessary.
 
 ## Why this project is useful?

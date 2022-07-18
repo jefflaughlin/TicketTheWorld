@@ -11,8 +11,8 @@ _Ticket The World_ helps you keep an eye on the creation and progress of Jira ti
 1. Step through the hue-api setup Python scripts. `configure-user.py` and then `configure-lights.py` They will create a config.json file for your particular environment.
 1. Create an account on Upstash and an endpoint for your data with a Redis backend. The free version allows up to 10,000 commands per day which should be more than enough for any reasonable usage.
 1. Create an account with Netlify. Set a new Environment Variable in Netlify's UI called `UPSTASH_ENDPOINT` and set it to the address generated in the previous step. Configure the `netlify-bridge-api`.
-1. Customize the Jira webhook listener
-1. Update the Python scripts to pull from Upstash and schedule the app to run regularly. Once a minute should likely be all that is necessary.
+1. Customize the Jira webhook listener on the Settings > System > Webhooks Jira page. You will need to configure the webhook to send for just a limited set of Jira events to avoid being overrun with updates (Jira is quite chatty). The webhook URL should connect to the Netlify site configured previously such as `https://sitename.netlify.app/json` Modify the `issue-related events` section with a JQL query and filtering for just the Issues, Comments, properties that you are interested in. [Image: WebHook Configuration](/images/webhooks.png)
+1. Update the NodeJS project with the Upstash endpoint information so that it can be scheduled to poll for the latest ticket information. When new content is found send a command to the Hue API to update lighting.
 
 ## Why this project is useful?
 

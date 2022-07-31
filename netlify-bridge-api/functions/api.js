@@ -31,9 +31,9 @@ router.post("/json", (req, res) => {
 	client.set('trace', JSON.stringify(jiraWebhook));
 
 	// no real need to send back the data - uncomment to test what was sent
-	// res.send({
-	// 	"trace": jiraWebhook
-	// });
+	res.send({
+		"trace": jiraWebhook
+	});
 });
 
 

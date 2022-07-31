@@ -12,7 +12,22 @@ _Ticket The World_ helps you keep an eye on the creation and progress of Jira ti
 1. Create an account on Upstash and an endpoint for your data with a Redis backend. The free version allows up to 10,000 commands per day which should be more than enough for any reasonable usage.
 1. Create an account with Netlify. Set a new Environment Variable in Netlify's UI called `UPSTASH_ENDPOINT` and set it to the address generated in the previous step. Configure the `netlify-bridge-api`.
 1. Customize the Jira webhook listener on the Settings > System > Webhooks Jira page. You will need to configure the webhook to send for just a limited set of Jira events to avoid being overrun with updates (Jira is quite chatty). The webhook URL should connect to the Netlify site configured previously such as `https://sitename.netlify.app/json` Modify the `issue-related events` section with a JQL query and filtering for just the Issues, Comments, properties that you are interested in. [Image: WebHook Configuration](/images/webhooks.png)
-1. Update the NodeJS project with the Upstash endpoint information so that it can be scheduled to poll for the latest ticket information. When new content is found send a command to the Hue API to update lighting.
+1. Update the NodeJS project configuration. A sample config file named .env-sample shows the base format. You should make a copy of this file named ".env" with your actual connection string. When new content is found send a command to the Hue API to update lighting. You will need to enter values for your Upstash endpoint, the hue application key (see the `configure-user.py` script earlier), and the specific lighting device you want to update (see the `configure-lights.py` script earlier).
+1. Start running your `local-process` NodeJS app. By default it will use port 3000 but that is configurable.
+1. Schedule a task to request the nodejs app as needed. The frequency of udpates should be based on the traffic that your Jira board experiences. Once per minute or even 5 minutes will likely be often enough.
+
+<p>&nbsp;</p>
+
+## Project Structure
+
+| Folder                    | Function                                                                                                                                                  |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| hue-api                   | Built for every member of your software team to plan track, and release great software.                                                                   |
+| netlify-bridge-api        | A single, simple workflow for building high performance sites and apps.                                                                                   |
+| local-process             | A local NodeJS app to check with Upstash for the latest Jira update, compare it to the last update processed locally and update the hue lights as needed. |
+| images, support_materials | A single, simple workflow for building high performance sites and apps.                                                                                   |
+
+<p>&nbsp;</p>
 
 ## Why this project is useful?
 
@@ -33,8 +48,8 @@ In my particular case I had a Synology NAS at home that is capable of running Py
 This project was built to suit my particular needs so you may wish to customize or adapt the overall project to beter suit your requirements. You will require access to all items list in the [Systems and Services](#systems-and-services-used) section below. All web application services were kept as low-cost (or free) wherever possible though actual pricing is often based on usage.
 
 1. Clone the [Github repository](https://github.com/jefflaughlin/TicketTheWorld/)
-2. Sign up for the required services or replace each one with your own preferred option
-3. Update the application code with service addresses, API values, and configure implementation options to suit your needs
+1. Sign up for the required services or replace each one with your own preferred option
+1. Update the application code with service addresses, API values, and configure implementation options to suit your needs
 
 <p>&nbsp;</p>
 
@@ -57,8 +72,8 @@ This project was built to suit my particular needs so you may wish to customize 
 | [Python 3](https://www.python.org/)                        | A programming language that lets you work quickly and integrate systems more effectively |
 | [Visual Studio Code](https://code.visualstudio.com/)       | A streamlined code editor with support for development operations                        |
 | [Github](https://github.com)                               | Build, ship, and maintain software                                                       |
+| [NodeJS](https://nodejs.org/en/)                           | Node.js is designed to build scalable network applications.                              |
 
-<p>&nbsp;</p>
 <p>&nbsp;</p>
 
 ## Who maintains and contributes to the project

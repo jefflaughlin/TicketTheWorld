@@ -24,7 +24,7 @@ router.post("/json", (req, res) => {
 
 	// no real need to send back the data - uncomment to test what was sent
 	res.send({
-		"trace": JSON.stringify(jiraWebhook)
+		"trace": process.env.UPSTASH_ENDPOINT
 	});
 });
 

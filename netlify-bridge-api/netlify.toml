@@ -1,6 +1,6 @@
 [build]
   functions="functions"
-  base = "api"
+  base = "netlify-bridge-api"
   publish = "dist"
 
 [[redirects]]

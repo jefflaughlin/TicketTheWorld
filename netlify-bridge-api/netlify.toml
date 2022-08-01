@@ -1,7 +1,7 @@
 [build]
   functions="functions"
   base = "netlify-bridge-api"
-  publish = "dist"
+  publish = "/dist"
 
 [[redirects]]
   to="/.netlify/functions/api/:splat"

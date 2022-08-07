@@ -110,3 +110,4 @@ typings/
 .DS_Store
 .Trashes
 *.swp
+cloudflare-bridge-api/wrangler.toml

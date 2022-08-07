@@ -1,0 +1,7 @@
+name = "cloudflare-bridge-api"
+main = "src/index.js"
+compatibility_date = "2022-08-06"
+
+[vars]
+UPSTASH_TOKEN ='Bearer ENCRYPTEDTOKENFROMUPSTASH'
+UPSTASH_URL = 'https://us1-fast-moth-36628.upstash.io/set/xxxxx'

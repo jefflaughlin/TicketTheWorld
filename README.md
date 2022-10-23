@@ -46,7 +46,7 @@ In my particular case I had a Synology NAS at home that is capable of running Py
 
 ## How can users get started with using this project?
 
-This project was built to suit my particular needs so you may wish to customize or adapt the overall project to beter suit your requirements. You will require access to all items list in the [Systems and Services](#systems-and-services-used) section below. All web application services were kept as low-cost (or free) wherever possible though actual pricing is often based on usage.
+This project was built to suit my particular needs so you may wish to customize or adapt the overall project to better suit your requirements. You will require access to all items list in the [Systems and Services](#systems-and-services-used) section below. All web application services were kept as low-cost (or free) wherever possible though actual pricing is often based on usage.
 
 1. Clone the [Github repository](https://github.com/jefflaughlin/TicketTheWorld/)
 1. Sign up for the required services or replace each one with your own preferred option

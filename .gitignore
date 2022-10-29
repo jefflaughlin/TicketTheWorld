@@ -1,5 +1,7 @@
 # Application-specific
 hue-api/config.json
+cloudflare-bridge-api/wrangler.toml
+support_materials/Marketing Media/Ticket The World.mp4
 
 # Logs
 logs
@@ -110,4 +112,3 @@ typings/
 .DS_Store
 .Trashes
 *.swp
-cloudflare-bridge-api/wrangler.toml
